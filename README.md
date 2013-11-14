@@ -34,4 +34,4 @@ Do you want to see directives in action? Visit http://titosust.github.io/Bootstr
 </form>
 ```
 
-<p>And you are done!</p>s 
+<p>And you are done!</p>
