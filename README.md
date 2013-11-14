@@ -12,26 +12,26 @@ Do you want to see directives in action? Visit http://titosust.github.io/Bootstr
 
 #### HTML HEAD:
 ```
-&lt;link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" /&gt;
-&lt;link href="css/icon-picker.min.css"  rel="stylesheet" type="text/css" /&gt;
-&lt;script src="js/jquery.min.js"&gt;&lt;/script&gt;
-&lt;script src="js/iconPicker.min.js"&gt;&lt;/script&gt;
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/icon-picker.min.css"  rel="stylesheet" type="text/css" />
+<script src="js/jquery.min.js"></script>
+<script src="js/iconPicker.min.js"></script>
 ```
 
 #### JavaScript:
 ```
-&lt;script type="text/javascript"&gt;
+<script type="text/javascript">
         $(function () {
             $(".icon-picker").iconPicker();
         });
-&lt;/script&gt;
+</script>
 ```
 
 #### HTML BODY:
 ```
-&lt;form method="post" &gt;
-&lt;input type="text" name="someName" class="icon-picker" /&gt;
-&lt;/form&gt;
+<form method="post" >
+<input type="text" name="someName" class="icon-picker" />
+</form>
 ```
 
 <p>And you are done!</p>s 
