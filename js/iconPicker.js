@@ -119,7 +119,7 @@
 	        	$(".icon-list li a",$popup).click(function(e){
 	        		e.preventDefault();
 	        		var title=$(this).attr("title");
-	        		$element.val(".glyphicon  .glyphicon-"+title);
+	        		$element.val("glyphicon glyphicon-"+title);
 	        		removeInstance();
 	        	});
 	        }
