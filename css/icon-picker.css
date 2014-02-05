@@ -78,7 +78,7 @@ left: 7px;
 .icon-popup .ip-control ul li{float: left;list-style-type: none;}
 .icon-popup .ip-control ul li a{margin-top: -3px;color:#373737;}
 .icon-popup .ip-control ul li:first-child{margin-left: 3px;}
-.icon-popup .ip-control ul li:last-child{float: right;margin-right: 7px;}
+.icon-popup .ip-control ul li:last-child{position: absolute;    right: 0;    top: 14px;    margin-right: 2px;}
 
 .icon-list ul li{
 	display: inline-block;
