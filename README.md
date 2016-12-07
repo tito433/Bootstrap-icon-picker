@@ -1,37 +1,28 @@
-#Bootstrap 3.0 Icon Picker
+# Bootstrap v4 Icon Picker - [Demo](http://tito433.github.io/Bootstrap-icon-picker)
 
-***
+[jQuery](https://jquery.com/) plugin for picking Bootstrap v4 Icons
 
-If you are looking for a way to create dynamic items(menu,tab,button) with dynamic icon provided by Bootstrap 3 as [glyphicon](http://getbootstrap.com/components/) and need a picker like color picker or date picker from where you can select the icon and corresponding icon-class goes to your form field(input) you are in right place!
+## Dependencies
+1. [jQuery 3.x](http://code.jquery.com/jquery-3.1.1.min.js)
+2. [Bootstrap v4](https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css)
 
-## Demo
 
-Do you want to see directives in action? Visit http://titosust.github.io/Bootstrap-icon-picker
-
-## Installation
-
-#### HTML HEAD:
+#### HTML:
 ```
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link href="css/icon-picker.min.css"  rel="stylesheet" type="text/css" />
-<script src="js/jquery.min.js"></script>
+<head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+ <link href="css/icon-picker.min.css"  rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <form method="post" >
+   <input type="text" name="someName" class="icon-picker" />
+  </form>
+</body>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="js/iconPicker.min.js"></script>
-```
-
-#### JavaScript:
-```
 <script type="text/javascript">
-        $(function () {
-            $(".icon-picker").iconPicker();
-        });
+    $(function () {
+        $(".icon-picker").iconPicker();
+    });
 </script>
 ```
-
-#### HTML BODY:
-```
-<form method="post" >
-<input type="text" name="someName" class="icon-picker" />
-</form>
-```
-
-<p>And you are done!</p>

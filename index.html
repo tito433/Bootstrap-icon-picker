@@ -1,31 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <link href="css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
-  	<link href="css/icon-picker.min.css" media="all" rel="stylesheet" type="text/css" />
-    
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js/iconPicker.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $(".icon-picker").iconPicker();
-        });
-    </script>
-    <style type="text/css">
-        #wraper{position:absolute;width:400px; left:50%;margin-left: -200px;top:100px;}
-        input{padding-bottom: 30px;}
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 4 Icon Picker - Demo</title>
+   <link href="css/bootstrap-4.0.0-alpha.5.min.css" rel="stylesheet" type="text/css" />
+   <link href="css/icon-picker.min.css"  rel="stylesheet" type="text/css" />
+   <link href="css/album.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-	<div id="wraper">
-		<form method="post">
-      <input type="text" name="someName" class="icon-picker" />
-      <input type="text" name="someName2" class="icon-picker" />
-      <input type="text" name="someName3" class="icon-picker" />
-      
-    </form>
-    
-	</div> <!-- wraper -->
-</body>
+    <div class="navbar-collapse collapse inverse" id="navbar-header">
+      <div class="container-fluid">
+        <div class="about">
+          <h4>Icon Picker</h4>
+          <p class="text-muted">This page shows usases for Bootstrap 4 Icon Picker.</p>
+        </div>
+        <div class="links">
+          <h4>Links</h4>
+          <ul class="list-unstyled">
+            <li><a href="https://github.com/tito433/Bootstrap-icon-picker">Github Repo</a></li>
+            <li><a href="https://github.com/tito433/Bootstrap-icon-picker/releases">Download</a></li>
+            <li><a href="mailto:titosust@gmail.com">Email me</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-static-top navbar-dark bg-inverse">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <a href="#" class="navbar-brand">Bootstrap 4 Icon Picker</a>
+      </div>
+    </div>
+
+    <section class="jumbotron text-xs-center">
+      <div class="container">
+        <blockquote>
+          <p>But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? </p>
+        </blockquote>
+        <div class="mb-attribution">
+          <p class="mb-author">Cicero (106 BC - 43 BC)</p>
+          <cite><a href="http://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cicero/de_Finibus/1*.html#R10">De Finibus, Book 1, sections 32–3</a></cite>
+          <div class="Cicero"></div>
+        </div>
+      </div>
+    </section>
+    <div class="album text-muted">
+      <div class="container">
+        <div class="row">
+          <div class="card">
+            <div class="cont">
+              <h4>As input element</h4>
+              <p class="card-text">This example shows how you can add Icon Picker to your HTML input elemnt.</p>
+              <strong>HTML</strong>
+              <pre><code>&lt;input type="text" name="someName" class="<strong>icon-picker</strong>" /&gt;</code></pre>
+              <strong>JS</strong>
+              <pre><code>&lt;script type="text/javascript"&gt;
+  $(function () {
+      $(".<strong>icon-picker</strong>").iconPicker();
+  });
+&lt;/script&gt;</code></pre>
+              <input type="text" name="someName" class="icon-picker" />
+            </div>
+          </div>
+          <div class="card">
+            <div class="cont">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="cont">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-xs-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Bootstrap 4 Icon Picker demo, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="https://v4-alpha.getbootstrap.com/">Visit the homepage</a> or read <a href="https://v4-alpha.getbootstrap.com/getting-started/">getting started guide</a>.</p>
+      </div>
+    </footer>    
+  </body>
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/iconPicker.min.js"></script>
+  <script type="text/javascript">
+      $(function () {
+          $(".icon-picker").iconPicker();
+      });
+  </script>
 </html>
- 
