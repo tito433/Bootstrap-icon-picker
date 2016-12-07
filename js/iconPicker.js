@@ -34,9 +34,9 @@
 
         	this.$popup.html('<div class="ip-control"> \
 					          <div class="left"><a href="#" class="btn btn-sm" data-dir="-1">&laquo;</a></div> \
-					           <div><input type="text" class="ip-search" placeholder="Search" /></div> \
-					           <div class="right"><a href="#" class="btn btn-sm" data-dir="1">&raquo;</a></div> \
-					          </div> \
+					          <div class="right"><a href="#" class="btn btn-sm" data-dir="1">&raquo;</a></div> \
+					          <div class="middle"><input type="text" class="ip-search" placeholder="Search" /></div> \
+                              </div> \
 					           <div class="icon-list"></div>').appendTo("body");
         	
         	
