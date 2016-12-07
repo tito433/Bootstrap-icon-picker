@@ -1,5 +1,6 @@
 body {
   min-height: 75rem; /* Can be removed; just added for demo purposes */
+  color: #444;
 }
 
 .navbar {
@@ -49,13 +50,11 @@ body {
   max-width: 40rem;
 }
 
-.album {
-  min-height: 50rem; /* Can be removed; just added for demo purposes */
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  background-color: #f7f7f7;
+.page-header {
+    padding-bottom: 9px;
+    margin: 20px 0;
+    border-bottom: 1px solid #eee;
 }
-
 .card {
   float: left;
   width: 33.333%;

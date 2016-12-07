@@ -4,8 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 4 Icon Picker - Demo</title>
    <link href="css/bootstrap-4.0.0-alpha.5.min.css" rel="stylesheet" type="text/css" />
-   <link href="css/icon-picker.min.css"  rel="stylesheet" type="text/css" />
+   <link href="css/glyphicons.css" rel="stylesheet" type="text/css" />
+   <link href="css/icon-picker.css"  rel="stylesheet" type="text/css" />
    <link href="css/album.css" rel="stylesheet" type="text/css" />
+   <script src="js/jquery-3.1.1.min.js"></script>
   </head>
   <body>
     <div class="navbar-collapse collapse inverse" id="navbar-header">
@@ -43,22 +45,36 @@
         </div>
       </div>
     </section>
-    <div class="album text-muted">
+    <section>
       <div class="container">
+        <h1 class="page-header">Glyphicons</h1>
         <div class="row">
           <div class="card">
             <div class="cont">
               <h4>As input element</h4>
-              <p class="card-text">This example shows how you can add Icon Picker to your HTML input elemnt.</p>
+              <p class="card-text">This example shows how to add Glyphicons using Icon Picker to your HTML input elemnt.</p>
+
               <strong>HTML</strong>
-              <pre><code>&lt;input type="text" name="someName" class="<strong>icon-picker</strong>" /&gt;</code></pre>
+              <pre><code>&lt;link href="css/glyphicons.css" rel="stylesheet" type="text/css" /&gt;
+&lt;div class=&quot;input-group&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;icon class&quot; aria-describedby=&quot;<strong>basic-demo1</strong>&quot;&gt;
+  &lt;span class=&quot;input-group-addon&quot; id=&quot;<strong>basic-demo1</strong>&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
               <strong>JS</strong>
               <pre><code>&lt;script type="text/javascript"&gt;
   $(function () {
-      $(".<strong>icon-picker</strong>").iconPicker();
+      $("#<strong>basic-demo1</strong>").iconPicker('glyphicons');
   });
 &lt;/script&gt;</code></pre>
-              <input type="text" name="someName" class="icon-picker" />
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="icon class" aria-describedby="basic-demo1">
+                <span class="input-group-addon cursor" id="basic-demo1"><i class="glyphicon glyphicon-picture"></i></span>
+              </div>
+              <script type="text/javascript">
+                $(function () {
+                    $("#basic-demo1").iconPicker('glyphicon');
+                });
+            </script>
             </div>
           </div>
           <div class="card">
@@ -73,7 +89,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <footer class="text-muted">
       <div class="container">
@@ -85,12 +101,8 @@
       </div>
     </footer>    
   </body>
-  <script src="js/jquery-3.1.1.min.js"></script>
+  
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/iconPicker.min.js"></script>
-  <script type="text/javascript">
-      $(function () {
-          $(".icon-picker").iconPicker();
-      });
-  </script>
+  <script src="js/iconPicker.js"></script>
+  
 </html>
