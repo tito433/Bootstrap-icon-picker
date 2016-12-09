@@ -5,14 +5,17 @@
     * Intigrated, Processed and  Built with passion by @titosust; Web Developer @vizrt
   */
 
-.icon-popup{
+.iconPicker{
 	position: absolute;
+	display: none;
 	width: 256px;
-	height: 268px;
 	color: #000;
 	font-size: 14px;
+    background: #fff;
+    border: 1px solid #ccc;
+    z-index: 999;
 }
-.icon-popup:before {
+.iconPicker:before {
  content: '';
 display: inline-block;
 border-left: 7px solid transparent;
@@ -23,7 +26,7 @@ position: absolute;
 top: -7px;
 left: 6px;
 }
-.icon-popup:after {
+.iconPicker:after {
   content: '';
 display: inline-block;
 border-left: 6px solid transparent;
@@ -33,45 +36,27 @@ position: absolute;
 top: -6px;
 left: 7px;
 }
-.icon-popup a:hover{
+.iconPicker a:hover{
 	background-color:#eee;
 }
-.icon-popup .icon-title{
-	position: relative;
-	background-color: #563d7c;
-	color: #fff;
-	border: 1px solid #463265;
-	
+
+.iconPicker .control{
+	border-bottom: 1px solid #e5e5e5;
+    padding: 6px;
 }
-.icon-popup .icon-title h4{
-	margin: 0;
-	padding: 8px 10px;
-	font-size: 17px;
-	font-weight: bold;
-}
-.pointer{
-	cursor: pointer;
-}
-.icon-popup .ip-control{
-	background-color: white;
-    border-bottom: 1px solid #e5e5e5;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 7px;
-}
-.icon-popup .ip-control .left{
+.iconPicker .control .left{
 	float: left;
 	width: 30px;
 }
-.icon-popup .ip-control .middle{
+.iconPicker .control .middle{
 	margin: 0 25px;
 	text-align: center;
 }
-.icon-popup .ip-control .right{
+.iconPicker .control .right{
 	float: right;
 	width: 30px;
 }
-.icon-popup .ip-search{
+.iconPicker .search{
 	padding-left: 10px;
 	font-size: 12px;
 	background-repeat: no-repeat;
@@ -79,30 +64,24 @@ left: 7px;
 	background-position: right center;
 }
 
-.icon-popup .icon-list{position:absolute;top: 43px;bottom:0;overflow: hidden;}
-.icon-list ul{
+.iconPicker .icons{height:150px;overflow: hidden;}
+.icons ul{
 	margin: 0;
 	padding: 0;
 	margin-bottom: 10px;
 }
-.icon-popup .ip-control ul{margin: 4px 0;padding: 0;}
-.icon-popup .ip-control ul li{float: left;list-style-type: none;}
-.icon-popup .ip-control ul li+li{margin-left: 5px;}
-.icon-popup .ip-control ul li a{margin-top: -3px;color:#373737;}
-.icon-popup .ip-control ul li:first-child{margin-left: 3px;}
-.icon-popup .ip-control ul li:last-child{position: absolute;right: 0;top: 9px;}
 
-.icon-list ul li{
+.icons ul li{
 	display: inline-block;
 	margin: 3px;
 	float: left;
 	border: 1px dotted #eee;
 }
 
-.icon-list ul li a{
+.icons ul li a{
 	display: block;
 	text-decoration: none;
 	color:#373737;
 	padding: 6px 10px;
 }
-.icon-list ul li a:hover{color:#000;}
+.icons ul li a:hover{color:#000;}

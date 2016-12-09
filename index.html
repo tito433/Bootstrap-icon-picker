@@ -47,16 +47,40 @@
     </section>
     <section>
       <div class="container">
-        <h1 class="page-header">Glyphicons</h1>
+        <h2 class="page-header">Glyphicons</h2>
+        <p class="summery">
+          This section illustrate how to add Glyphicons Icon Picker to Elements withs options.
+          Very first you need to include Icon fonts css glyphicons.css in page header and tell this plugin to add only Glyphicons icons as Icon Picker.
+        </p>
+        <strong>html head</strong>
+        <pre><code>&lt;link href="css/glyphicons.css" rel="stylesheet" type="text/css" /&gt;</code></pre>
         <div class="row">
           <div class="card">
             <div class="cont">
-              <h4>As input element</h4>
-              <p class="card-text">This example shows how to add Glyphicons using Icon Picker to your HTML input elemnt.</p>
-
+              <h4>In input element</h4>
+              <p class="card-text">Configure Icon Picker to a HTML input elemnt on focus.</p>
               <strong>HTML</strong>
-              <pre><code>&lt;link href="css/glyphicons.css" rel="stylesheet" type="text/css" /&gt;
-&lt;div class=&quot;input-group&quot;&gt;
+              <pre>&lt;input id=&quot;<strong>example1</strong>&quot; type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;icon class&quot; &gt;</code></pre>
+              <strong>JavaScript</strong>
+              <pre><code>$(function () {
+      $("#<strong>example1</strong>").iconPicker({'icons':'glyphicons'});
+  });
+</code></pre>
+              <strong>OUTPUT</strong>
+              <input id="example1" type="text" class="form-control" placeholder="icon class" />
+              <script type="text/javascript">
+                $(function () {
+                    $("#example1").iconPicker({'icons':'glyphicon'});
+                });
+            </script>
+            </div>
+          </div>
+          <div class="card">
+            <div class="cont">
+              <h4>As input element</h4>
+              <p class="card-text">Configure Icon Picker to add Icons to a HTML input elemnt on focus.</p>
+              <strong>HTML</strong>
+              <pre>&lt;div class=&quot;input-group&quot;&gt;
   &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;icon class&quot; aria-describedby=&quot;<strong>basic-demo1</strong>&quot;&gt;
   &lt;span class=&quot;input-group-addon&quot; id=&quot;<strong>basic-demo1</strong>&quot;&gt;&lt;/span&gt;
 &lt;/div&gt;</code></pre>
@@ -71,15 +95,10 @@
                 <span class="input-group-addon cursor" id="basic-demo1"><i class="glyphicon glyphicon-picture"></i></span>
               </div>
               <script type="text/javascript">
-                $(function () {
-                    $("#basic-demo1").iconPicker('glyphicon');
-                });
+                // $(function () {
+                //     $("#basic-demo1").iconPicker('glyphicon');
+                // });
             </script>
-            </div>
-          </div>
-          <div class="card">
-            <div class="cont">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
           </div>
           <div class="card">
@@ -102,7 +121,6 @@
     </footer>    
   </body>
   
-  <script src="js/bootstrap.min.js"></script>
   <script src="js/iconPicker.js"></script>
   
 </html>

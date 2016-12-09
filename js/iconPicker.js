@@ -1,8 +1,6 @@
 /*
  * Bootstrap 4 IconPicker - jQuery plugin for Icon selection
  *
- * Copyright (c) 20013 A. K. M. Rezaul Karim<titosust@gmail.com>
- *
  * Licensed under the MIT license:
  *   http://www.opensource.org/licenses/mit-license.php
  *
@@ -15,41 +13,48 @@
 
 (function($) {
 
-	function iconPicker($element,klass,opt){
+	function iconPicker(dom,options){
+
+        var settings=$.extend({'icons':'glyphicon','addon':false},options);
+
 		var icons=[];
-    	var regx=new RegExp('\\.'+klass+'\\-([^:]*)',"i");
+    	var regx=new RegExp('\\.'+settings.icons+'\\-([^:]*)',"i");
+        var $popup=null;
+
 		$.each(document.styleSheets,function(){
 			$.each(this.cssRules,function(){
 				var kname=this.selectorText, match=regx.exec(kname);
 		    	if(match) icons.push(match[1]);
 			})
 		});
+        if(!icons.length) throw "No icons found for "+settings.iconss;
 
-		this.createUI=function(){
-        	this.$popup=$('<div/>',{
-        		css: {'top':$element.offset().top+$element.outerHeight()+6,
-	        		'left':$element.offset().left
-	        	},class:'icon-popup'
+		function createUI(){
+        	if($popup) return true; //why???
+
+            $popup=$('<div/>',{
+        		css: {'top':$(dom).offset().top+$(dom).outerHeight()+6,
+	        		'left':$(dom).offset().left
+	        	},class:'iconPicker'
         	});
 
-        	this.$popup.html('<div class="ip-control"> \
+        	$popup.html('<div class="control"> \
 					          <div class="left"><a href="#" class="btn btn-sm" data-dir="-1">&laquo;</a></div> \
 					          <div class="right"><a href="#" class="btn btn-sm" data-dir="1">&raquo;</a></div> \
-					          <div class="middle"><input type="text" class="ip-search" placeholder="Search" /></div> \
+					          <div class="middle"><input type="text" class="search" placeholder="Search" /></div> \
                               </div> \
-					           <div class="icon-list"></div>').appendTo("body");
+					           <div class="icons"></div>').appendTo("body");
         	
         	
-        	this.$popup.addClass('dropdown-menu').show();
-
+        	
         	var lastVal="", start_index=0,per_page=30,end_index=start_index+per_page;
-        	$(".ip-control .btn",this.$popup).click(function(e){
-                e.stopPropagation();
+        	$(".control .btn",$popup).click(function(e){
+                e.preventDefault();
                 var dir=$(this).attr("data-dir");
                 start_index=start_index+per_page*dir;
                 start_index=start_index<0?0:start_index;
                 if(start_index+per_page<=210){
-                  $.each($(".icon-list>ul li"),function(i){
+                  $.each($(".icons>ul li"),function(i){
                       if(i>=start_index && i<start_index+per_page){
                          $(this).show();
                       }else{
@@ -61,53 +66,67 @@
                 }
             });
         	
-        	$('.ip-control .ip-search',this.$popup).on("keyup",function(e){
+        	$('.control .search',$popup).on("keyup",function(e){
                 if(lastVal!=$(this).val()){
                     lastVal=$(this).val();
                     if(lastVal==""){
                     	showList(icons);
                     }else{
-                    	showList($element, $(icons)
-						        .map(function(i,v){ 
-							            if(v.toLowerCase().indexOf(lastVal.toLowerCase())!=-1){return v} 
-							        }).get());
+                    	showList($(icons).filter(function(item){ 
+							            return item.toLowerCase().indexOf(lastVal.toLowerCase()); 
+							        })
+                                );
 					}
                     
                 }
             });  
-        	$(document).mouseup(this.removeUI.bind(this));
-        	this.showList(icons);
-        };
-        this.showList=function(arrLis){
-        	$ul=$("<ul>");
         	
+        	showList(icons);
+            $popup.slideDown(400,function(){
+                $(document).mouseup(hideUI);
+            })
+            
+        };
+        function showList(arrLis){
+        	$ul=$("<ul>");
         	for (var i in arrLis) {
-        		$ul.append("<li><a href=\"#\" title="+arrLis[i]+"><span class=\""+klass+" "+klass+"-"+arrLis[i]+"\"></span></a></li>");
+        		$ul.append("<li><a href=\"#\" title="+arrLis[i]+"><span class=\""+settings.icons+" "+settings.icons+"-"+arrLis[i]+"\"></span></a></li>");
         	};
 
-        	$(".icon-list",this.$popup).html($ul);
-        	$(".icon-list li a",this.$popup).click(function(e){
+        	$(".icons",$popup).html($ul);
+        	$(".icons li a",$popup).click(function(e){
         		e.preventDefault();
         		var title=$(this).attr("title");
-        		$element.val("glyphicon glyphicon-"+title);
-        		removeInstance();
+        		$(dom).val("-"+title);
+        		$popup.slideUp('fast');
         	});
 	    };
 
-        this.removeUI=function(e){
-        	if (this.$popup && !$(e.target).closest('.icon-popup')) {
-		        this.$popup.remove();
+        function hideUI(e){
+        	if ($popup && 0===$(e.target).closest('.iconPicker').length) {
+		        $popup.slideUp('fast');
 		    }
         }
         
-        $element.unbind('click').bind('click',this.createUI.bind(this));
-        this.createUI();
+
+        if(dom instanceof HTMLInputElement){
+            dom.onfocus=function(){
+                if(null===$popup) createUI();
+                $popup.slideDown(400,function(){
+                    $(document).mouseup(hideUI);
+                })
+            }
+        }
+        // if(settings.addon){
+        //     var adons=$(settings.addon);
+
+        // }
+        
 	}
 
-    $.fn.iconPicker = function(klass) {
-    	var settings=$.extend({},arguments[1]?arguments[1]:{});
-        return this.each( function() {
-        	return new iconPicker($(this),klass,settings);
+    $.fn.iconPicker = function(settings) {
+        return this.each(function() {
+            return new iconPicker(this,settings);
         });
     }
 
