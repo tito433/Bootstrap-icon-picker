@@ -64,7 +64,7 @@ left: 7px;
 	background-position: right center;
 }
 
-.iconPicker .icons{height:150px;overflow: hidden;}
+.iconPicker .icons{overflow: hidden;height: 205px;}
 .icons ul{
 	margin: 0;
 	padding: 0;

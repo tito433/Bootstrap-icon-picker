@@ -27,11 +27,9 @@
 		    	if(match) icons.push(match[1]);
 			})
 		});
-        if(!icons.length) throw "No icons found for "+settings.iconss;
+        if(!icons.length) throw "No icons found for "+settings.icons;
 
 		function createUI(){
-        	if($popup) return true; //why???
-
             $popup=$('<div/>',{
         		css: {'top':$(dom).offset().top+$(dom).outerHeight()+6,
 	        		'left':$(dom).offset().left
@@ -42,8 +40,8 @@
 					          <div class="left"><a href="#" class="btn btn-sm" data-dir="-1">&laquo;</a></div> \
 					          <div class="right"><a href="#" class="btn btn-sm" data-dir="1">&raquo;</a></div> \
 					          <div class="middle"><input type="text" class="search" placeholder="Search" /></div> \
-                              </div> \
-					           <div class="icons"></div>').appendTo("body");
+                        </div> \
+					    <div class="icons"></div>').appendTo("body");
         	
         	
         	
@@ -54,7 +52,7 @@
                 start_index=start_index+per_page*dir;
                 start_index=start_index<0?0:start_index;
                 if(start_index+per_page<=210){
-                  $.each($(".icons>ul li"),function(i){
+                  $(".icons>ul li").each(function(i){
                       if(i>=start_index && i<start_index+per_page){
                          $(this).show();
                       }else{
@@ -70,9 +68,9 @@
                 if(lastVal!=$(this).val()){
                     lastVal=$(this).val();
                     if(lastVal==""){
-                    	showList(icons);
+                    	showIcons(icons);
                     }else{
-                    	showList($(icons).filter(function(item){ 
+                    	showIcons($(icons).filter(function(item){ 
 							            return item.toLowerCase().indexOf(lastVal.toLowerCase()); 
 							        })
                                 );
@@ -81,13 +79,11 @@
                 }
             });  
         	
-        	showList(icons);
-            $popup.slideDown(400,function(){
-                $(document).mouseup(hideUI);
-            })
+        	showIcons(icons);
+            $(document).mouseup(hideUI);
             
         };
-        function showList(arrLis){
+        function showIcons(arrLis){
         	$ul=$("<ul>");
         	for (var i in arrLis) {
         		$ul.append("<li><a href=\"#\" title="+arrLis[i]+"><span class=\""+settings.icons+" "+settings.icons+"-"+arrLis[i]+"\"></span></a></li>");
@@ -98,13 +94,13 @@
         		e.preventDefault();
         		var title=$(this).attr("title");
         		$(dom).val("-"+title);
-        		$popup.slideUp('fast');
+        		$popup.hide();
         	});
 	    };
 
         function hideUI(e){
-        	if ($popup && 0===$(e.target).closest('.iconPicker').length) {
-		        $popup.slideUp('fast');
+            if (e.target!=dom && 0===$(e.target).closest('.iconPicker').length) {
+		        $popup.hide();
 		    }
         }
         
@@ -112,9 +108,7 @@
         if(dom instanceof HTMLInputElement){
             dom.onfocus=function(){
                 if(null===$popup) createUI();
-                $popup.slideDown(400,function(){
-                    $(document).mouseup(hideUI);
-                })
+                $popup.show();
             }
         }
         // if(settings.addon){
