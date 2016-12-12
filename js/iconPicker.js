@@ -65,17 +65,13 @@
             });
         	
         	$('.control .search',$popup).on("keyup",function(e){
-                if(lastVal!=$(this).val()){
-                    lastVal=$(this).val();
-                    if(lastVal==""){
-                    	showIcons(icons);
-                    }else{
-                    	showIcons($(icons).filter(function(item){ 
-							            return item.toLowerCase().indexOf(lastVal.toLowerCase()); 
-							        })
-                                );
-					}
-                    
+                var val=$(this).val();
+                if(val==""){
+                    showIcons(icons);
+                }else{
+                    showIcons(icons.filter(function(item){ 
+                        return item.toLowerCase().indexOf(val.toLowerCase())!=-1; 
+                    }));
                 }
             });  
         	
@@ -93,7 +89,7 @@
         	$(".icons li a",$popup).click(function(e){
         		e.preventDefault();
         		var title=$(this).attr("title");
-        		$(dom).val("-"+title);
+        		$(dom).val(settings.icons+"-"+title);
         		$popup.hide();
         	});
 	    };
