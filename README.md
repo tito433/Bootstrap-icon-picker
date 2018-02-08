@@ -6,7 +6,7 @@ If you are looking for a way to create dynamic items(menu,tab,button) with dynam
 
 ## Demo
 
-Do you want to see directives in action? Visit http://titosust.github.io/Bootstrap-icon-picker
+Do you want to see directives in action? Visit http://tito433.github.io/Bootstrap-icon-picker
 
 ## Installation
 
