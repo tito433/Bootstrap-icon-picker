@@ -89,7 +89,7 @@
 	                if(lastVal!=$(this).val()){
 	                    lastVal=$(this).val();
 	                    if(lastVal==""){
-	                    	showList(icons);
+	                    	showList($element, icons);
 	                    }else{
 	                    	showList($element, $(icons)
 							        .map(function(i,v){ 
