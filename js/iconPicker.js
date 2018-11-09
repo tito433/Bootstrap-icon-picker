@@ -107,7 +107,7 @@
 
 	        }
 	        function removeInstance(){
-	        	$(".icon-popup").remove();
+	        	$popup.remove();
 	        }
 	        function showList($element,arrLis){
 	        	$ul=$("<ul>");
